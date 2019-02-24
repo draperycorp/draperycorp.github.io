@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Parisienne);
+@font-face {
+    font-family: univers-light;
+    src: url(../fonts/Univers-Light.otf);
+}
+@font-face {
+    font-family: Parisienne;
+    src: url(https://fonts.googleapis.com/css?family=Parisienne);
+}
+/*logo styling*/
+#logo{
+    width:15%;
+    float: left;
+    margin: 1vw;
+    
+}
+/*main container styling*/
+#container{
+    width:80%;
+    padding-left: 10%;
+    min-height: 1500px;
+    margin: auto;
+    background-color: #333333;
+    color: #dddddd;
+}
+
+/*Xiao Multisensory Perception Lab*/
+header{
+    font-size: 1vw;
+    margin-bottom: 4vw;
+    font-family: univers-light;
+
+}
+header span{
+    font-size: 7vw;
+    top: 10vw;
+    border-left-width: 10px;
+}
+h1{
+    width:50%;
+    padding-top:  5%;
+    border-bottom: solid;
+    padding-bottom: 4vw;
+    
+}
+
+h1 span {
+    font-family: Parisienne, univers-light;
+}
+/*navigation styling*/
+nav{
+    float: right;
+    padding-top: -2vw;
+
+}
+a{
+        text-decoration:  none;
+
+}
+/*bei profile // main page*/
+#bei_protrait{
+    width: 20vw;
+}
+
+#button {
+    width: 233px;
+    height: 55px;
+    background-color: #dddddd;
+    margin: 50px 10px 10px 0px;
+    color: #333333;
+    display: flex;
+}
+
+#buttontext {
+    padding-top: 21px;
+    padding-left: 55px;
+    height: 18px;
+    width: 144px;
+    font-family: univers-light;
+    font-size: 18px;
+
+}
