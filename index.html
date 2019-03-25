@@ -10,9 +10,29 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
         <link rel="icon" type="image/png" href="images/linkedin2.png">
-
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
     </head>
     <body>
+         <script type="text/javascript">
+            AWS.config.region = 'us-east-2'; // 1. Enter your region
+
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: 'postprders' // 2. Enter your identity pool
+            });
+
+            AWS.config.credentials.get(function(err) {
+                if (err) alert(err);
+                console.log(AWS.config.credentials);
+            });
+             
+            var bucketName = 'drapery-orders'; // Enter your bucket name
+            var bucket = new AWS.S3({
+                params: {
+                    Bucket: bucketName
+                }
+            });
+             
+         </script>
         <div id="container">
             <header id="drapery-header">
                 <h1 id="drapery-h1">
