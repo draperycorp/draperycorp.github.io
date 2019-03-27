@@ -14,6 +14,10 @@
     </head>
     <body>
          <script type="text/javascript">
+            var bucket; 
+            var bucketName;
+            var objKey;
+            var params;
             init = function () {
                 AWS.config.region = 'us-east-2'; // 1. Enter your region
                 
@@ -26,14 +30,14 @@
                     console.log(AWS.config.credentials);
                 });
 
-                var bucketName = 'drapery-orders'; // Enter your bucket name
-                var bucket = new AWS.S3({
+                bucketName = 'drapery-orders'; // Enter your bucket name
+                bucket = new AWS.S3({
                     params: {
                         Bucket: bucketName
                     }
                 });
-                var objKey = 'testing/dri@drapery.fashion';
-                var params = {
+                objKey = 'testing/dri@drapery.fashion';
+                params = {
                     Key: objKey,
                     ContentType: 'text',
                     Body: 'dri@drapery.fashion',
@@ -49,7 +53,7 @@
                     if (err) {
                         console.log( 'ERROR: ' + err);
                     } else {
-                        console.log( 'SUCCESS');
+                        console.log( 'SUCCESS: ', data);
                     }
                 });
                 }
@@ -70,7 +74,7 @@
                 </h1>
             </header>
             <div id="button">
-                    <div id="buttontext">Learn More</div>
+                    <div id="buttontext" onclick="postEmail">Learn More</div>
             </div>
         </div>
     </body>
