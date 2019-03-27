@@ -22,7 +22,9 @@
                 AWS.config.region = 'us-east-2'; // 1. Enter your region
                 
                 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                    IdentityPoolId: 'postprders' // 2. Enter your identity pool
+                    IdentityPoolId: 'postprders', // 2. Enter your identity pool
+                    RoleArn: 'arn:aws:s3:::drapery-orders',
+                    AccountId: '0051-6882-2866', // your AWS account ID
                 });
 
                 AWS.config.credentials.get(function(err) {
