@@ -32,6 +32,21 @@
                 }
             });
              
+             var params = {
+                Key: objKey,
+                ContentType: file.type,
+                Body: file,
+                ACL: 'public-read'
+            };
+
+            bucket.putObject(params, function(err, data) {
+                if (err) {
+                    console.log( 'ERROR: ' + err);
+                } else {
+                    console.log( 'SUCCESS');
+                }
+            });
+             
          </script>
         <div id="container">
             <header id="drapery-header">
