@@ -14,38 +14,46 @@
     </head>
     <body>
          <script type="text/javascript">
-            AWS.config.region = 'us-east-2'; // 1. Enter your region
+            init = function () {
+                AWS.config.region = 'us-east-2'; // 1. Enter your region
+                
+                AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                    IdentityPoolId: 'postprders' // 2. Enter your identity pool
+                });
 
-            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                IdentityPoolId: 'postprders' // 2. Enter your identity pool
-            });
+                AWS.config.credentials.get(function(err) {
+                    if (err) alert(err);
+                    console.log(AWS.config.credentials);
+                });
 
-            AWS.config.credentials.get(function(err) {
-                if (err) alert(err);
-                console.log(AWS.config.credentials);
-            });
-             
-            var bucketName = 'drapery-orders'; // Enter your bucket name
-            var bucket = new AWS.S3({
-                params: {
-                    Bucket: bucketName
+                var bucketName = 'drapery-orders'; // Enter your bucket name
+                var bucket = new AWS.S3({
+                    params: {
+                        Bucket: bucketName
+                    }
+                });
+                var objKey = 'testing/dri@drapery.fashion';
+                var params = {
+                    Key: objKey,
+                    ContentType: 'text',
+                    Body: 'dri@drapery.fashion',
+                    ACL: 'private'
+                };
+
+            }
+            window.onload = function () {
+                init();
+                postEmail = function () {
+                    
+                bucket.putObject(params, function(err, data) {
+                    if (err) {
+                        console.log( 'ERROR: ' + err);
+                    } else {
+                        console.log( 'SUCCESS');
+                    }
+                });
                 }
-            });
-             
-             var params = {
-                Key: objKey,
-                ContentType: file.type,
-                Body: file,
-                ACL: 'public-read'
             };
-
-            bucket.putObject(params, function(err, data) {
-                if (err) {
-                    console.log( 'ERROR: ' + err);
-                } else {
-                    console.log( 'SUCCESS');
-                }
-            });
              
          </script>
         <div id="container">
