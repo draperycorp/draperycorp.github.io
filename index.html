@@ -28,7 +28,7 @@
                 });
 
                 AWS.config.credentials.get(function(err) {
-                    if (err) alert(err);
+                    if (err) console.log(err);
                     console.log(AWS.config.credentials);
                 });
 
